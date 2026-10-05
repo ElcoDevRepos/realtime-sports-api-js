@@ -1,0 +1,71 @@
+{
+  "name": "realtime-sports-api",
+  "version": "0.1.0",
+  "description": "Official TypeScript/JavaScript client for the Realtime Sports API: live scores, play-by-play, box scores, schedules, teams, athletes, injuries, news, odds, webhooks and a WebSocket stream.",
+  "keywords": [
+    "sports",
+    "sports-api",
+    "live-scores",
+    "nfl",
+    "nba",
+    "mlb",
+    "nhl",
+    "soccer",
+    "college-football",
+    "play-by-play",
+    "odds",
+    "websocket",
+    "realtime-sports-api"
+  ],
+  "homepage": "https://www.realtimesportsapi.com/docs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElcoDevRepos/realtime-sports-api-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ElcoDevRepos/realtime-sports-api-js/issues"
+  },
+  "license": "MIT",
+  "author": "Realtime Sports API",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "openapi-typescript": "^7.13.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  }
+}
